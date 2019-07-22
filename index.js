@@ -1,8 +1,18 @@
+require('dotenv').config()
+
 var express = require('express')
 var bodyParser = require('body-parser')
+const basicAuth = require('express-basic-auth')
 const GoogleHome = require('node-googlehome')
 
 var app = express() // the main app
+
+
+// app.use(basicAuth({
+//     users: { process.env.username : 'supersecret' }
+// }))
+
+// function getUers
 
 var jsonParser = bodyParser.json()
 
@@ -12,6 +22,7 @@ app.get('/test', function (req, res) {
 })
 
 app.post('/home', jsonParser, function (req, res) {
+  // if(req.get('')) {}
   if(req.body['message']) {
    var message = req.body['message']
    let device = new GoogleHome.Connecter('192.168.86.24')
@@ -24,6 +35,6 @@ app.post('/home', jsonParser, function (req, res) {
   }
 })
 
-app.listen(3000, function () {
+app.listen(5000, function () {
   console.log('Ready')
 })
