@@ -21,6 +21,11 @@ app.get('/test', function (req, res) {
   res.send({test: 'text'})
 })
 
+app.get('/', function (req, res) {
+  console.log(app.mountpath) // /admin
+  res.send({test: 'text'})
+})
+
 // app.post('/home', jsonParser, function (req, res) {
 //   // if(req.get('')) {}
 //   if(req.body['message']) {
