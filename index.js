@@ -16,11 +16,9 @@ function myAuthorizer(username, password) {
     console.log(user1)
     console.log(user2)
     if(user1) {
-      console.log("user1")
       return basicAuth.safeCompare(password, process.env.PASSWORD1)
     }
     else if (user2) {
-      console.log("user2")
       return basicAuth.safeCompare(password, process.env.PASSWORD2)
     }
     else {
